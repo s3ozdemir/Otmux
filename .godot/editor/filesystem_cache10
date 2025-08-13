@@ -1,0 +1,11 @@
+72322a848ab928aa5c89f0cb78209805
+::res://::1755073397
+CommandOutput.gd::GDScript::6994720697144604613::1755021321::0::1::::CommandOutput<>Node<><>0<>0<><>::
+export_presets.cfg::TextFile::-1::1755065958::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D/CompressedTexture2D::7963684639181297430::1754896765::1754896776::1::::<><><>0<>0<>e7a4f82a986db3b60237da3d1363ced4<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+otmux.tscn::PackedScene::8655491134191434183::1755065907::0::1::::<><><>0<>0<><>::uid://c6wka7kf46sav::::res://CommandOutput.gd<>uid://dk4kve03kxm6u::::res://text_edit.gd<>uid://mdhiotiiq2kb::::res://run_button.gd
+run_button.gd::GDScript::848899327272192769::1755065907::0::1::::<>Button<><>0<>0<><>::
+text_edit.gd::GDScript::7921662363927013114::1754989693::0::1::::<>TextEdit<><>0<>0<><>::
+::res://android/::1754989597
+::res://TerminalHelper/::1755065907
+Common.gd::GDScript::7881640523941396939::1755065907::0::1::::Common<>Node<><>0<>0<><>::

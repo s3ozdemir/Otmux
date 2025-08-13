@@ -1,0 +1,4 @@
+res://otmux.tscn
+res://CommandOutput.gd
+res://run_button.gd
+res://text_edit.gd
