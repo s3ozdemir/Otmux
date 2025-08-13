@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvk1w6urb881x"]
+
+[ext_resource type="Script" uid="uid://dp1ybd338flbj" path="res://Otmux/otmux.gd" id="1_74b5g"]
+[ext_resource type="Script" uid="uid://doncwvsnidrq5" path="res://Otmux/terminal_container.gd" id="2_nmwh8"]
+[ext_resource type="PackedScene" uid="uid://dhsu7il448v7v" path="res://InputText/input_text.tscn" id="2_qpmai"]
+
+[node name="Otmux" type="Control" node_paths=PackedStringArray("http_request")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_74b5g")
+http_request = NodePath("HTTPRequest")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TerminalContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_nmwh8")
+
+[node name="InputText" parent="ScrollContainer/TerminalContainer" instance=ExtResource("2_qpmai")]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_behavior_recursive = 1
+color = Color(0, 0, 0, 1)
