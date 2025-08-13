@@ -18,7 +18,7 @@ func send_data(data: String):
 		"http://127.0.0.1:5000/data",
 		headers,
 		HTTPClient.METHOD_POST, 
-		body# <-- bu argüman artık ayrı değil, body request içine gömülüyor
+		body
 	)
 
 	if err != OK:
