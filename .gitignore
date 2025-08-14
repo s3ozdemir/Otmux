@@ -1,0 +1,22 @@
+# Godot import klasörü
+.import/
+
+# Godot geçici dosyalar
+*.tmp
+*.log
+*.cfg
+*.mono
+
+# OS bağımlı dosyalar
+.DS_Store
+Thumbs.db
+
+# Export klasörleri
+/export/
+# Android klasörü
+/android/
+
+# Mono / C# dosyaları (isteğe bağlı)
+*.csproj
+*.sln
+*.userprefs

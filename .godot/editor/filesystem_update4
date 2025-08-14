@@ -1,4 +1,3 @@
-res://InputText/input_text.tscn
-res://OutputText/output_text.gd
+res://text_field.tscn
+res://text_field.gd
 res://Otmux/otmux.tscn
-res://Otmux/otmux.gd

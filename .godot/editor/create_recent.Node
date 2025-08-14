@@ -1,10 +1,14 @@
+HBoxContainer
+Button
+Label      - Matches the "text" keyword.
+TextEdit
+VBoxContainer
+TabBar
+TabContainer
 HTTPRequest
 Node
-TextEdit
 ColorRect
 ScrollContainer
 GridContainer
 LineEdit
 MarginContainer
-Button
-Label
