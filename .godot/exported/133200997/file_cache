@@ -1,1 +1,4 @@
-res://otmux.tscn::c44a5e84ff8e269ed864f4aba461fbab::1755065907::res://.godot/exported/133200997/export-61eadea5523b4e427cf280327c965698-otmux.scn
+res://Scenes/input_text.tscn::6958971bf83a43d3457e283ae109abea::1755321639::res://.godot/exported/133200997/export-d1fbaab66c89b59c37b05333dee549d5-input_text.scn
+res://Scenes/otmux.tscn::f1e4aac2dc29e3e643615deb5daa7898::1755321828::res://.godot/exported/133200997/export-0398fba1ac64250c3ab60ff9ba68e2be-otmux.scn
+res://Scenes/output_text.tscn::909de280abe3f1f07d9c922200a680a5::1755321682::res://.godot/exported/133200997/export-5634013c225c6eb5e7cb74aea5b0dc54-output_text.scn
+res://Scenes/popup_copy.tscn::ff009bb08ce7cdb27fae779272ef7d8f::1755321673::res://.godot/exported/133200997/export-2a20778e2a129c6b5b5694d75479a52e-popup_copy.scn

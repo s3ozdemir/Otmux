@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcfbstr1xi6j8"]
+
+[ext_resource type="Script" uid="uid://c2c2vyfqys0bd" path="res://Scripts/Components/popup_copy.gd" id="1_uy2dn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pqeop"]
+bg_color = Color(0.7254902, 0.6, 0.29803923, 0.76862746)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[node name="PopupCopy" type="PopupPanel"]
+oversampling_override = 1.0
+title = "Content is copied"
+position = Vector2i(175, 1015)
+size = Vector2i(296, 108)
+visible = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_pqeop")
+script = ExtResource("1_uy2dn")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+offset_right = 296.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 41
+text = "Text copied"
+horizontal_alignment = 1
+vertical_alignment = 1

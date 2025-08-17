@@ -1,14 +1,15 @@
+TextureRect
+LineEdit
+ColorPickerButton
 HBoxContainer
 Button
-Label      - Matches the "text" keyword.
-TextEdit
 VBoxContainer
 TabBar
-TabContainer
-HTTPRequest
-Node
+FoldableContainer
+Label
+PanelContainer
+Panel
+RichTextLabel
 ColorRect
-ScrollContainer
-GridContainer
-LineEdit
 MarginContainer
+ProgressBar

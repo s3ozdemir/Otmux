@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://34uq16sknwyq"]
+
+[ext_resource type="Script" uid="uid://2e5etid2tvd4" path="res://image_output.gd" id="1_8kqn2"]
+
+[node name="ImageOutput" type="TextureRect"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = -1
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8kqn2")

@@ -1,3 +1,6 @@
-res://text_field.tscn
-res://text_field.gd
-res://Otmux/otmux.tscn
+res://Scripts/BuiltinTools/rm.gd
+res://Scripts/BuiltinTools/mkdir.gd
+res://Scenes/otmux.tscn
+res://Scripts/BuiltinTools/gdown.gd
+res://Scripts/Global/Global.gd
+res://Scripts/BuiltinTools/touch.gd
