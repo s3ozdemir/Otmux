@@ -1,1 +1,1 @@
-Alternative gui for termux
+Alternative terminal application
