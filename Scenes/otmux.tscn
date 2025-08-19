@@ -68,6 +68,7 @@ script = ExtResource("2_nmwh8")
 
 [node name="InputText" parent="TabContainer/Terminal/ScrollContainer/TerminalContainer" instance=ExtResource("2_qpmai")]
 layout_mode = 2
+text = "gdown https://www.google.com/"
 
 [node name="Insallation" type="TabBar" parent="TabContainer"]
 visible = false

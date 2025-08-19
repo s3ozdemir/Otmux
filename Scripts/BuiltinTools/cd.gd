@@ -1,10 +1,10 @@
-extends Node
-
+extends BuiltinTools
+class_name Cd
 
 func run(params):
 #	[".."]
 	if !params:
-		return "select directory"
+		return set_output_data("select directory")
 	var param = params[0]
 	print_debug(param)
 	return change_directory(param)
@@ -17,13 +17,13 @@ func change_directory(entry : String):
 	
 	if dir != null:
 		Global.current_direrctory = dir.get_current_dir()
-		return "changed dir"
+		return set_output_data("changed dir")
 	
 	var absolute_dir = DirAccess.open(entry)
 	if absolute_dir != null :
 		Global.current_direrctory = absolute_dir.get_current_dir()
-		return "changed dir"
+		return set_output_data("changed dir")
 	
-	return "There is no Directory"
+	return set_output_data("There is no Directory")
 
 	

@@ -1,4 +1,5 @@
-extends Node
+extends BuiltinTools
+class_name Openex
 
 func run(params : Array):
 	if params.is_empty():

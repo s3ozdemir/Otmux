@@ -1,12 +1,8 @@
 extends Node
+class_name Messages
 
-signal command_entered(command:String)
-signal received_data(response_code, data)
-signal text_copied
-signal output_ready(output_data : OutputData)
-
-var current_direrctory : String
-
+static var parameter_message = "parameter is required"
+static var process_succedded= "process succedded"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

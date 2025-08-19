@@ -9,8 +9,6 @@ func _ready() -> void:
 	Global.command_entered.connect(_on_command_entered)
 	
 
-func _process(delta: float) -> void:
-	pass
 
 func _on_command_entered(commnad:String):
 	HelperFunctions.create_scene(output_scene,self)

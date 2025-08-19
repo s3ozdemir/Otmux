@@ -1,10 +1,11 @@
-extends Node
+extends BuiltinTools
+class_name Touch
 
 
 func run(params : Array):
 	
 	if params.is_empty():
-		return "no param"
+		return set_output_data(Messages.parameter_message)
 		
 	var content : String
 	var _name = params[0]

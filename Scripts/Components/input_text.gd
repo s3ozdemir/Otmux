@@ -16,4 +16,3 @@ func _on_gui_input(event: InputEvent) -> void:
 				editable = false
 				Global.command_entered.emit(text)
 				gui_input.disconnect(_on_gui_input)
-				

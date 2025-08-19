@@ -1,11 +1,19 @@
 extends Node
 class_name BuiltinTools
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var tool_feature : Array = []
 
+enum tool_type{
+	None,
+	Internet,
+	AndroidRuntime
+}
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func set_output_data(data):
+	var output_data = OutputData.new()
+	output_data.data = data
+	output_data.receiver = self
+	return output_data
+func run(params : Array):
+	
+	return set_output_data("builtins")

@@ -1,5 +1,5 @@
-extends Node
-
+extends BuiltinTools
+class_name Cat
 
 func run(params : Array):
 	if params.is_empty():
@@ -10,12 +10,7 @@ func run(params : Array):
 	var file = FileAccess.open(path,FileAccess.READ)
 	var file_content = file.get_as_text()
 	print_debug(file_content)
-	return file_content
-
-func _ready() -> void:
-	pass
+	return set_output_data(file_content)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	
