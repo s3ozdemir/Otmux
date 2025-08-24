@@ -1,4 +1,7 @@
+#Command running scheme
+#InputText > CommandHandler > OutputTex > InputText
 extends Node
+class_name CommandHandler
 
 var default_path = OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
 var builtin_tools_path := "res://Scripts/BuiltinTools/"
@@ -12,10 +15,14 @@ func _on_command_entered(command : String):
 	var output = await run_shell_command(command)
 	Global.output_ready.emit(output)
 
+#Sub functions
 func run_shell_command(input : String):
 	var output : OutputData
 	input = input.strip_edges()
-	if input.is_empty(): output.data = "empty command"
+	if input == null: 
+		output.data = "empty command"
+		output.receiver = self
+		return output
 	
 	var space_index = input.find(" ")  # index of first space
 	var command = input.substr(0,space_index)
@@ -40,14 +47,15 @@ func set_defaults():
 	Global.current_direrctory = default_path
 
 func get_tools() -> Dictionary:
-	var builtin_tools :Dictionary
+	var builtin_tools : Dictionary
 	var dir = DirAccess.open(builtin_tools_path)
 	var raw_files = dir.get_files()
 	
 	for file in raw_files:
-		if file.get_extension() == "gd":
+		if file.get_extension() == "gd" or file.get_extension() == "gdc":
 			builtin_tools[file.get_basename()] = builtin_tools_path.path_join(file)
-		
+			
+#	getting gd or gdc files in BuiltinTool folder
 	return builtin_tools
 
 func run_script(path:String,params : Array):

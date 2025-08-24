@@ -16,4 +16,4 @@ func run(params : Array):
 	var file_access = FileAccess.open(Global.current_direrctory.path_join(_name),FileAccess.WRITE)
 	if content:
 		file_access.store_string(content)
-	
+		return set_output_data(Messages.process_succedded)

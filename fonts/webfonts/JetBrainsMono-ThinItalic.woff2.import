@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cf6q2hsduv3v2"
-path="res://.godot/imported/JetBrainsMono-ThinItalic.woff2-ed4582345d81d6a91eba0048ebcf61c9.fontdata"
+path="res://.godot/imported/JetBrainsMono-ThinItalic.woff2-d1f3f20682ff93c7441b8e2905a10413.fontdata"
 
 [deps]
 
-source_file="res://fonts/webfonts/JetBrainsMono-ThinItalic.woff2"
-dest_files=["res://.godot/imported/JetBrainsMono-ThinItalic.woff2-ed4582345d81d6a91eba0048ebcf61c9.fontdata"]
+source_file="res://Fonts/webfonts/JetBrainsMono-ThinItalic.woff2"
+dest_files=["res://.godot/imported/JetBrainsMono-ThinItalic.woff2-d1f3f20682ff93c7441b8e2905a10413.fontdata"]
 
 [params]
 

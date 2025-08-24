@@ -4,6 +4,7 @@ class_name InputText
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	grab_focus()
 	gui_input.connect(_on_gui_input)
 	
@@ -16,3 +17,4 @@ func _on_gui_input(event: InputEvent) -> void:
 				editable = false
 				Global.command_entered.emit(text)
 				gui_input.disconnect(_on_gui_input)
+				get_focus_mode_with_override()

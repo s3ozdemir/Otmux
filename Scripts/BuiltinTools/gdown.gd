@@ -5,7 +5,7 @@ var result : int
 var result_text
 func run(params : Array):
 	if params.is_empty():
-		return Messages.parameter_message + name
+		return set_output_data(Messages.parameter_message)
 	
 	print_debug("request")
 	var http = HTTPRequest.new()
@@ -16,7 +16,7 @@ func run(params : Array):
 	var err = http.request(url,[], HTTPClient.METHOD_POST, body)
 	
 	if err != OK:
-		return "Error %s" % error_string(err)
+		return set_output_data("Error %s" % error_string(err))
 		
 	await http.request_completed
 	return set_output_data(result_text)
@@ -31,5 +31,5 @@ func request_completed(_result: int, response_code: int, headers: PackedStringAr
 	
 	else:
 		print("HTTP Error:", response_code)
-		return "HTTP Error:" + str(response_code) 
+		return set_output_data("HTTP Error:" + str(response_code))
 	

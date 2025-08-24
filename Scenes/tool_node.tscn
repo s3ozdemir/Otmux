@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dvf0p60jijhlp" path="res://Scripts/Components/tool_node.gd" id="1_wpm6v"]
 
 [node name="ToolNode" type="FoldableContainer"]
+clip_contents = true
 custom_minimum_size = Vector2(0, 101.46)
 size_flags_horizontal = 3
 size_flags_vertical = 3

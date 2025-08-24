@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CommandSuggestions" load_steps=2 format=3 uid="uid://yy37hgnqmpwe"]
+
+[ext_resource type="Script" uid="uid://ulrx1h4u471m" path="res://Resources/CommandSuggestions.gd" id="1_enqi1"]
+
+[resource]
+script = ExtResource("1_enqi1")
+builtin_commands = ["Hello", "builtin_tools", "cat", "cd", "gdown", "img", "ls", "mkdir", "openex", "pwd", "rm", "touch"]

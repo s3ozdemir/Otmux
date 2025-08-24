@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://c4thethrokdic"
-path="res://.godot/imported/JetBrainsMonoNL-Medium.ttf-db7a686398b4248d7e682f03766118b3.fontdata"
+path="res://.godot/imported/JetBrainsMonoNL-Medium.ttf-5f31215c9946b26dacea51170a5c6c63.fontdata"
 
 [deps]
 
-source_file="res://fonts/ttf/JetBrainsMonoNL-Medium.ttf"
-dest_files=["res://.godot/imported/JetBrainsMonoNL-Medium.ttf-db7a686398b4248d7e682f03766118b3.fontdata"]
+source_file="res://Fonts/ttf/JetBrainsMonoNL-Medium.ttf"
+dest_files=["res://.godot/imported/JetBrainsMonoNL-Medium.ttf-5f31215c9946b26dacea51170a5c6c63.fontdata"]
 
 [params]
 

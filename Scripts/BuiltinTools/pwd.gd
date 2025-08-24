@@ -7,4 +7,4 @@ func run(params : Array):
 	return print_working_directory()
 
 func print_working_directory():
-	return Global.current_direrctory
+	return set_output_data(Global.current_direrctory)

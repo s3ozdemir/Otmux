@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cegfbwyc8d3jf"
-path="res://.godot/imported/JetBrainsMono-SemiBoldItalic.woff2-fb5997cd381851b4e4ca42e4212a896b.fontdata"
+path="res://.godot/imported/JetBrainsMono-SemiBoldItalic.woff2-f3e2ce866ba7cb3fae28cd355e8bbe3c.fontdata"
 
 [deps]
 
-source_file="res://fonts/webfonts/JetBrainsMono-SemiBoldItalic.woff2"
-dest_files=["res://.godot/imported/JetBrainsMono-SemiBoldItalic.woff2-fb5997cd381851b4e4ca42e4212a896b.fontdata"]
+source_file="res://Fonts/webfonts/JetBrainsMono-SemiBoldItalic.woff2"
+dest_files=["res://.godot/imported/JetBrainsMono-SemiBoldItalic.woff2-f3e2ce866ba7cb3fae28cd355e8bbe3c.fontdata"]
 
 [params]
 

@@ -7,7 +7,8 @@ func run(params):
 		return set_output_data("select directory")
 	var param = params[0]
 	print_debug(param)
-	return change_directory(param)
+	change_directory(param)
+	return set_output_data(Messages.process_succedded)
 
 
 func change_directory(entry : String):

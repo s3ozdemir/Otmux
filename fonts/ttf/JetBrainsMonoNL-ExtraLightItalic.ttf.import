@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://ly724o3gt2d6"
-path="res://.godot/imported/JetBrainsMonoNL-ExtraLightItalic.ttf-91dbb67fc6b22e721e4de3f4f5717a4c.fontdata"
+path="res://.godot/imported/JetBrainsMonoNL-ExtraLightItalic.ttf-6474152ba474e801fa34577719015ed2.fontdata"
 
 [deps]
 
-source_file="res://fonts/ttf/JetBrainsMonoNL-ExtraLightItalic.ttf"
-dest_files=["res://.godot/imported/JetBrainsMonoNL-ExtraLightItalic.ttf-91dbb67fc6b22e721e4de3f4f5717a4c.fontdata"]
+source_file="res://Fonts/ttf/JetBrainsMonoNL-ExtraLightItalic.ttf"
+dest_files=["res://.godot/imported/JetBrainsMonoNL-ExtraLightItalic.ttf-6474152ba474e801fa34577719015ed2.fontdata"]
 
 [params]
 

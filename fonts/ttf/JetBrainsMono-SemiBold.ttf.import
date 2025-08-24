@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cf4eb85isu8t0"
-path="res://.godot/imported/JetBrainsMono-SemiBold.ttf-737b2c53334b214d4fb93a6183c90877.fontdata"
+path="res://.godot/imported/JetBrainsMono-SemiBold.ttf-5bc683f26d595f44c9c81c404cc2c1f7.fontdata"
 
 [deps]
 
-source_file="res://fonts/ttf/JetBrainsMono-SemiBold.ttf"
-dest_files=["res://.godot/imported/JetBrainsMono-SemiBold.ttf-737b2c53334b214d4fb93a6183c90877.fontdata"]
+source_file="res://Fonts/ttf/JetBrainsMono-SemiBold.ttf"
+dest_files=["res://.godot/imported/JetBrainsMono-SemiBold.ttf-5bc683f26d595f44c9c81c404cc2c1f7.fontdata"]
 
 [params]
 

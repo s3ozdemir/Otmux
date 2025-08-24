@@ -10,5 +10,3 @@ func run(params : Array):
 	var dir = DirAccess.open(Global.current_direrctory)
 	dir.remove(path)
 	return set_output_data("entry is removed")
-
-# Called when the node enters the scene tree for the first time.

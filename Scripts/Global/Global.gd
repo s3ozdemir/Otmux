@@ -4,6 +4,7 @@ signal command_entered(command:String)
 signal received_data(response_code, data)
 signal text_copied
 signal output_ready(output_data : OutputData)
+signal opened_keyboard(height)
 
 var current_direrctory : String
 
