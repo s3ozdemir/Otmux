@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://ibsukwhoghlw" path="res://Scripts/Components/output_text.gd" id="1_o15gl"]
 
 [node name="OutputText" type="TextEdit"]
+offset_right = 8.0
+offset_bottom = 35.0
 text = "Output"
 editable = false
-wrap_mode = 1
-scroll_fit_content_height = true
 script = ExtResource("1_o15gl")

@@ -6,7 +6,7 @@ class_name Otmux
 
 func _ready() -> void:
 	save_button.pressed.connect(_on_save_button_pressed)
-	print_debug(GDScript.new().get_base_script())
+	
 
 func _on_save_button_pressed():
 	theme.default_font_size = int(font_size.text)

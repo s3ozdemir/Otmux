@@ -19,6 +19,7 @@ func _on_command_entered(command : String):
 func run_shell_command(input : String):
 	var output : OutputData
 	input = input.strip_edges()
+	
 	if input == null: 
 		output.data = "empty command"
 		output.receiver = self
@@ -40,6 +41,14 @@ func run_shell_command(input : String):
 			var path : String = builtin_tools[tool]
 			output = await run_script(path, params)
 			break
+		
+	if output == null:
+		output = OutputData.new()
+		output.data = "  there is not \" %s \" " % command
+		output.receiver = ""
+	
+	elif output != null:
+		output.receiver = command
 	
 	return output
 
@@ -54,15 +63,16 @@ func get_tools() -> Dictionary:
 	for file in raw_files:
 		if file.get_extension() == "gd" or file.get_extension() == "gdc":
 			builtin_tools[file.get_basename()] = builtin_tools_path.path_join(file)
-			
 #	getting gd or gdc files in BuiltinTool folder
+#	Beacuse builtin tool is in apk.
+#	(after compiled to apk, gd files convert from .gd to .gdc files)
 	return builtin_tools
 
 func run_script(path:String,params : Array):
-	var output
+	var output_data
 	var script = load(path) # load script
-	output = await script.new().run(params) # run the script 
+	output_data = await script.new().run(params) # run the script 
 	
-	return output
+	return output_data
 	# (run function is not optional, it is similar to main function in C )
 	# eacht tool script needs a run function (gd script tools)

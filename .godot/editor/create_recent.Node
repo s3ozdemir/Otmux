@@ -1,8 +1,9 @@
+TextEdit
+RichTextLabel
 Node
 ColorRect
 Panel
 SpinBox
-TextEdit
 HScrollBar
 GraphEdit
 Button
@@ -11,5 +12,3 @@ LineEdit
 ColorPickerButton
 HBoxContainer
 VBoxContainer
-TabBar
-FoldableContainer

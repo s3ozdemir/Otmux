@@ -10,6 +10,7 @@ func run(params : Array):
 	var file = FileAccess.open(path,FileAccess.READ)
 	var file_content = file.get_as_text()
 	print_debug(file_content)
+	
 	return set_output_data(file_content)
 
 

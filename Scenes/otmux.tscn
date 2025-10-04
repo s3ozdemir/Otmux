@@ -1,12 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvk1w6urb881x"]
+[gd_scene load_steps=17 format=3 uid="uid://dvk1w6urb881x"]
 
 [ext_resource type="Script" uid="uid://dp1ybd338flbj" path="res://Scripts/Components/otmux.gd" id="1_74b5g"]
-[ext_resource type="Script" uid="uid://doncwvsnidrq5" path="res://Scripts/Components/terminal_container.gd" id="2_nmwh8"]
 [ext_resource type="Script" uid="uid://l7d1xbagx5xo" path="res://Scripts/Components/http_request.gd" id="2_pqeop"]
 [ext_resource type="PackedScene" uid="uid://dhsu7il448v7v" path="res://Scenes/input_text.tscn" id="2_qpmai"]
-[ext_resource type="Script" uid="uid://b7ys52kguhtpo" path="res://Scripts/Components/copy_script.gd" id="4_cpouy"]
+[ext_resource type="Script" uid="uid://ce63o1ovnm0da" path="res://Scripts/Components/terminal_scroll.gd" id="3_6rb06"]
+[ext_resource type="PackedScene" uid="uid://ggmakp4pooau" path="res://Scenes/output_text.tscn" id="5_4ewo4"]
 [ext_resource type="PackedScene" uid="uid://bcfbstr1xi6j8" path="res://Scenes/popup_copy.tscn" id="5_nmwh8"]
-[ext_resource type="Script" uid="uid://c72id0d0tqv7d" path="res://Scenes/v_keyboard.gd" id="5_p6to2"]
 [ext_resource type="PackedScene" uid="uid://bu0ijqqm71a7w" path="res://Scenes/tool_node.tscn" id="7_1fwaf"]
 [ext_resource type="Script" uid="uid://ew3iwcvma5bi" path="res://Scripts/Components/tool_container.gd" id="7_w2q5t"]
 [ext_resource type="Script" uid="uid://c6ug6id68w0ub" path="res://Scripts/Components/command_handler.gd" id="7_ytals"]
@@ -14,7 +13,6 @@
 [ext_resource type="Script" uid="uid://c0s7dr6yxspu5" path="res://Scripts/Components/restart_button.gd" id="10_tgriu"]
 [ext_resource type="Script" uid="uid://qykekgnur8ra" path="res://Scripts/Components/setup_button.gd" id="11_khc6s"]
 [ext_resource type="Script" uid="uid://bylajgsf4ox6m" path="res://Scripts/Components/command_suggest.gd" id="13_p6to2"]
-[ext_resource type="Script" uid="uid://c67evtyixn4jx" path="res://Scenes/keyboard_watcher.gd" id="15_qwv6h"]
 
 [sub_resource type="Theme" id="Theme_w2q5t"]
 default_font_size = 36
@@ -40,8 +38,9 @@ script = ExtResource("1_74b5g")
 save_button = NodePath("TabContainer/Settings/VBoxContainer/FontSizeSettings/SaveButton")
 font_size = NodePath("TabContainer/Settings/VBoxContainer/FontSizeSettings/FontSize")
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[node name="HTTPRequest" type="HTTPRequest" parent="." node_paths=PackedStringArray("input_text")]
 script = ExtResource("2_pqeop")
+input_text = NodePath("../TabContainer/Terminal/TerminalScroll/TerminalContainer/InputText")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -65,20 +64,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_6rb06")
 
 [node name="TerminalContainer" type="GridContainer" parent="TabContainer/Terminal/TerminalScroll"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("2_nmwh8")
+size_flags_vertical = 3
 
 [node name="InputText" parent="TabContainer/Terminal/TerminalScroll/TerminalContainer" instance=ExtResource("2_qpmai")]
 layout_mode = 2
 
-[node name="VKeyboard" type="ColorRect" parent="TabContainer/Terminal/TerminalScroll/TerminalContainer"]
+[node name="OutputText" parent="TabContainer/Terminal/TerminalScroll/TerminalContainer" instance=ExtResource("5_4ewo4")]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 10
-script = ExtResource("5_p6to2")
+text = ""
+wrap_mode = 1
+autowrap_mode = 1
+scroll_fit_content_height = true
 
 [node name="Insallation" type="TabBar" parent="TabContainer"]
 visible = false
@@ -92,40 +94,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextEdit4" type="TextEdit" parent="TabContainer/Insallation/VBoxContainer"]
-layout_mode = 2
-text = "Run the following codes when Otmux starts"
-editable = false
-wrap_mode = 1
-scroll_fit_content_height = true
-
-[node name="TextEdit5" type="TextEdit" parent="TabContainer/Insallation/VBoxContainer"]
-layout_mode = 2
-text = "git clone https://github.com/s3ozdemir/Basic-Server (installiation only)"
-editable = false
-wrap_mode = 1
-scroll_fit_content_height = true
-script = ExtResource("4_cpouy")
-content = "git clone https://github.com/s3ozdemir/Basic-Server"
-
-[node name="TextEdit3" type="TextEdit" parent="TabContainer/Insallation/VBoxContainer"]
-layout_mode = 2
-text = "cd Basic-Server"
-editable = false
-wrap_mode = 1
-scroll_fit_content_height = true
-script = ExtResource("4_cpouy")
-content = "cd Basic-Server"
-
-[node name="TextEdit2" type="TextEdit" parent="TabContainer/Insallation/VBoxContainer"]
-layout_mode = 2
-text = "python server.py"
-editable = false
-wrap_mode = 1
-scroll_fit_content_height = true
-script = ExtResource("4_cpouy")
-content = "python server.py"
 
 [node name="PopupCopy" parent="TabContainer/Insallation/VBoxContainer" instance=ExtResource("5_nmwh8")]
 position = Vector2i(175, 1007)
@@ -234,5 +202,4 @@ script = ExtResource("7_ytals")
 [node name="CommandSuggester" type="Node" parent="."]
 script = ExtResource("13_p6to2")
 
-[node name="KeyboardWatcher" type="Node" parent="."]
-script = ExtResource("15_qwv6h")
+[connection signal="request_completed" from="HTTPRequest" to="HTTPRequest" method="_on_request_completed" flags=18]

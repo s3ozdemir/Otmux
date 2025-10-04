@@ -23,4 +23,4 @@ func _run() -> void:
 		print("Kaydedildi -> %s" % save_path)
 	else:
 		push_error("Kaydedilemedi! Hata kodu: %s" % err)
-	JavaClassWrapper
+	

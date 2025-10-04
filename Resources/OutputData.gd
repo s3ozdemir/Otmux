@@ -1,5 +1,5 @@
 extends Resource
 class_name OutputData
 
-var data 
+var data
 var receiver
