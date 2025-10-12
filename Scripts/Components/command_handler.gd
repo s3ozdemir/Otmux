@@ -19,7 +19,6 @@ func _on_command_entered(command : String):
 func run_shell_command(input : String):
 	var output : OutputData
 	input = input.strip_edges()
-	
 	if input == null: 
 		output.data = "empty command"
 		output.receiver = self
@@ -55,6 +54,7 @@ func run_shell_command(input : String):
 func set_defaults():
 	Global.current_direrctory = default_path
 
+##returns builtin tool paths with dictionary type
 func get_tools() -> Dictionary:
 	var builtin_tools : Dictionary
 	var dir = DirAccess.open(builtin_tools_path)
@@ -69,7 +69,7 @@ func get_tools() -> Dictionary:
 	return builtin_tools
 
 func run_script(path:String,params : Array):
-	var output_data
+	var output_data : OutputData
 	var script = load(path) # load script
 	output_data = await script.new().run(params) # run the script 
 	

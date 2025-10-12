@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dp1ybd338flbj" path="res://Scripts/Components/otmux.gd" id="1_74b5g"]
 [ext_resource type="Script" uid="uid://l7d1xbagx5xo" path="res://Scripts/Components/http_request.gd" id="2_pqeop"]
 [ext_resource type="PackedScene" uid="uid://dhsu7il448v7v" path="res://Scenes/input_text.tscn" id="2_qpmai"]
-[ext_resource type="Script" uid="uid://ce63o1ovnm0da" path="res://Scripts/Components/terminal_scroll.gd" id="3_6rb06"]
+[ext_resource type="Script" uid="uid://dt5p2r7wtdku8" path="res://Scripts/Components/output_container.gd" id="3_khc6s"]
 [ext_resource type="PackedScene" uid="uid://ggmakp4pooau" path="res://Scenes/output_text.tscn" id="5_4ewo4"]
 [ext_resource type="PackedScene" uid="uid://bcfbstr1xi6j8" path="res://Scenes/popup_copy.tscn" id="5_nmwh8"]
 [ext_resource type="PackedScene" uid="uid://bu0ijqqm71a7w" path="res://Scenes/tool_node.tscn" id="7_1fwaf"]
@@ -38,9 +38,10 @@ script = ExtResource("1_74b5g")
 save_button = NodePath("TabContainer/Settings/VBoxContainer/FontSizeSettings/SaveButton")
 font_size = NodePath("TabContainer/Settings/VBoxContainer/FontSizeSettings/FontSize")
 
-[node name="HTTPRequest" type="HTTPRequest" parent="." node_paths=PackedStringArray("input_text")]
+[node name="HTTPRequest" type="HTTPRequest" parent="." node_paths=PackedStringArray("input_text", "output_text")]
 script = ExtResource("2_pqeop")
-input_text = NodePath("../TabContainer/Terminal/TerminalScroll/TerminalContainer/InputText")
+input_text = NodePath("../TabContainer/Terminal/InputText")
+output_text = NodePath("../TabContainer/Terminal/OutputContainer/OutputText")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -57,30 +58,29 @@ current_tab = 0
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="TerminalScroll" type="ScrollContainer" parent="TabContainer/Terminal"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_6rb06")
+[node name="OutputContainer" type="ScrollContainer" parent="TabContainer/Terminal"]
+layout_mode = 0
+offset_right = 648.0
+offset_bottom = 1048.0
+script = ExtResource("3_khc6s")
 
-[node name="TerminalContainer" type="GridContainer" parent="TabContainer/Terminal/TerminalScroll"]
+[node name="OutputText" parent="TabContainer/Terminal/OutputContainer" instance=ExtResource("5_4ewo4")]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="InputText" parent="TabContainer/Terminal/TerminalScroll/TerminalContainer" instance=ExtResource("2_qpmai")]
-layout_mode = 2
-
-[node name="OutputText" parent="TabContainer/Terminal/TerminalScroll/TerminalContainer" instance=ExtResource("5_4ewo4")]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
 text = ""
 wrap_mode = 1
 autowrap_mode = 1
+scroll_smooth = true
 scroll_fit_content_height = true
+
+[node name="InputText" parent="TabContainer/Terminal" instance=ExtResource("2_qpmai")]
+layout_mode = 0
+offset_top = 1048.0
+offset_right = 648.0
+offset_bottom = 1110.0
+size_flags_vertical = 8
 
 [node name="Insallation" type="TabBar" parent="TabContainer"]
 visible = false
@@ -168,11 +168,10 @@ size_flags_horizontal = 3
 text = "Background Color"
 editable = false
 
-[node name="BgColorButton" type="ColorPickerButton" parent="TabContainer/Settings/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("background")]
+[node name="BgColorButton" type="ColorPickerButton" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("9_4bgq1")
-background = NodePath("../../../../../Background")
 
 [node name="RestartButton" type="Button" parent="TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
@@ -184,22 +183,8 @@ layout_mode = 2
 text = "set up system"
 script = ExtResource("11_khc6s")
 
-[node name="Background" type="ColorRect" parent="."]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-mouse_behavior_recursive = 1
-color = Color(0.15202332, 0.20467722, 0.31640625, 1)
-
 [node name="CommandHandler" type="Node" parent="."]
 script = ExtResource("7_ytals")
 
 [node name="CommandSuggester" type="Node" parent="."]
 script = ExtResource("13_p6to2")
-
-[connection signal="request_completed" from="HTTPRequest" to="HTTPRequest" method="_on_request_completed" flags=18]

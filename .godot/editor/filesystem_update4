@@ -1,5 +1,5 @@
+res://Scripts/BuiltinTools/execb.gd
 res://Scenes/otmux.tscn
-res://Scripts/Global/Global.gd
-res://Scripts/Components/http_request.gd
-res://Scripts/BuiltinTools/wait.gd
-res://Scripts/BuiltinTools/url.gd
+res://Scripts/Components/command_handler.gd
+res://Scripts/Components/otmux.gd
+res://Scripts/Components/output_text.gd

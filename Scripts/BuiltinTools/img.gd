@@ -2,6 +2,7 @@ extends BuiltinTools
 class_name Img
 
 func run(params: Array):
+	return set_output_data("tool is not ready")
 	if params.is_empty():
 		return set_output_data(Messages.parameter_message)
 		

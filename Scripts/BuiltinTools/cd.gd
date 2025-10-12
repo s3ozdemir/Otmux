@@ -10,7 +10,6 @@ func run(params):
 	change_directory(param)
 	return set_output_data(Messages.process_succedded)
 
-
 func change_directory(entry : String):
 	var target_path = Global.current_direrctory.path_join(entry)
 	#print_debug(target_path)
@@ -26,5 +25,3 @@ func change_directory(entry : String):
 		return set_output_data("changed dir")
 	
 	return set_output_data("There is no Directory")
-
-	

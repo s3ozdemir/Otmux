@@ -2,8 +2,6 @@ extends TextEdit
 class_name OutputText
 
 var input_scene = preload("uid://dhsu7il448v7v")
-var base_text : String = "Waiting"
-
 
 func _ready() -> void:
 	Global.waited.connect(on_waited)
@@ -11,15 +9,16 @@ func _ready() -> void:
 
 func _on_output_ready(output_data : OutputData):
 	var output : String
-	var receiver : String
-	if output_data.receiver is Gdown:
+#	http outputları http_request üzerinden özel olarak yazılıyor
+	output = "%s > %s \n" % [output_data.receiver, output_data.data]
+	write_output(output)
+
+func write_output(output : String) -> void:
+	if output.length() > 1024:
 		pass
 	
-	output = "%s > %s \n" % [output_data.receiver, output_data.data]
-	insert_line_at(0, output)
-
-func animate_waiting(delay : float):
-	print(get_first_visible_line())
+	insert_text(output,get_last_full_visible_line(), 0)
 
 func on_waited(delay):
-	animate_waiting(delay)
+	pass
+	

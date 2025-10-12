@@ -1,5 +1,10 @@
-TextEdit
+VScrollBar
+ScrollContainer
+VFlowContainer
+VBoxContainer
+Container
 RichTextLabel
+TextEdit
 Node
 ColorRect
 Panel
@@ -8,7 +13,3 @@ HScrollBar
 GraphEdit
 Button
 TextureRect
-LineEdit
-ColorPickerButton
-HBoxContainer
-VBoxContainer
