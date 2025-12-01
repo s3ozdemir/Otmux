@@ -1,15 +1,15 @@
-extends BuiltinTools
+extends Tool
 class_name Zip
 
 func run(params : Array):
 	if params.is_empty():
-		return set_output_data(Messages.parameter_message)
+		echo(Messages.parameter_message)
 	
 	var file_pahts : String = convert_absolute_path(params[0])
 	var output_path = params[1]
 	output_path = convert_absolute_path(output_path)
 	zip_file(output_path, file_pahts)
-	return set_output_data(OK)
+	echo(str(OK))
 
 func zip_file(output_path : String, file_paths : String):
 	if output_path.is_empty() or file_paths.is_empty():

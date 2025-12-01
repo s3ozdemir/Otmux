@@ -13,6 +13,7 @@ static func check_null_values(value):
 		return "There is no parameter"
 	else:
 		return value
+
 static func convert_to_path(file):
 	var path = Global.current_direrctory.path_join(file)
 	return path
@@ -30,3 +31,13 @@ static func get_tools() -> Dictionary:
 #	Beacuse builtin tool is in apk.
 #	(after compiled to apk, gd files convert from .gd to .gdc files)
 	return builtin_tools
+
+func get_paths():
+	pass
+	
+
+static func get_file_content(path : String):
+	var file := FileAccess.open(path,FileAccess.READ)
+	var content := file.get_as_text()
+	return content
+	

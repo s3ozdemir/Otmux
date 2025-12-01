@@ -1,8 +1,7 @@
 res://Scenes/input_text.tscn::a332297c8350690cba38cf38202dfa27::1758913090::res://.godot/exported/133200997/export-d1fbaab66c89b59c37b05333dee549d5-input_text.scn
-res://Scenes/otmux.tscn::f93d3a9ec570d0e7aa50e6efea345477::1760276271::res://.godot/exported/133200997/export-0398fba1ac64250c3ab60ff9ba68e2be-otmux.scn
-res://Scenes/output_text.tscn::bb606f59173eb60dc4d44c3d78b04830::1760083908::res://.godot/exported/133200997/export-5634013c225c6eb5e7cb74aea5b0dc54-output_text.scn
+res://Scenes/otmux.tscn::f029752de848c57eb5a58d2fc6349ef5::1760726282::res://.godot/exported/133200997/export-0398fba1ac64250c3ab60ff9ba68e2be-otmux.scn
+res://Scenes/output_text.tscn::73e6a7658f17115bf89dcd4d4e6bb4e8::1760549021::res://.godot/exported/133200997/export-5634013c225c6eb5e7cb74aea5b0dc54-output_text.scn
 res://Scenes/popup_copy.tscn::41b8c358f9707a76dbea1b416c5113a2::1755417009::res://.godot/exported/133200997/export-2a20778e2a129c6b5b5694d75479a52e-popup_copy.scn
 res://Resources/OutputData.tres::4451391376395415aae0431d80679f50::1755529459::res://.godot/exported/133200997/export-064e8194f7f92a19022654e145c2ba00-OutputData.res
-res://Scenes/image_output.tscn::ca253d7c14d83c9ba1b6483721e4943b::1755598661::res://.godot/exported/133200997/export-d58c77e6016315ef9bf8e1a95f71ba8c-image_output.scn
-res://Scenes/tool_node.tscn::3e3a48c2974ea2d306b0ad02e245f989::1755936267::res://.godot/exported/133200997/export-4bb4d5c4084d0d264403839e37f9114f-tool_node.scn
 res://Resources/CommandSuggestions.tres::4eea67c222933e23c3b5adc29bb8862c::1759341409::res://.godot/exported/133200997/export-5506accc2624069cb326231161f68384-CommandSuggestions.res
+res://Scenes/terminal.tscn::f58ce1e901f62d7b143d417f1e025018::1760373580::res://.godot/exported/133200997/export-9cccd93dd0dfcde9f33c270d23f1acd5-terminal.scn

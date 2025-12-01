@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_enqi1")
-builtin_commands = ["Hello", "builtins", "cat", "cd", "gdown", "img", "ls", "mkdir", "mv", "openex", "pwd", "rm", "touch"]
+builtin_commands = ["Hello", "breq", "builtins", "cat", "cd", "echo", "eval", "execb", "gdown", "img", "ls", "mkdir", "mv", "openex", "pwd", "rm", "touch", "wait", "zip"]

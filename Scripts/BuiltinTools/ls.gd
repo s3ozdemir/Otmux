@@ -1,9 +1,10 @@
-extends BuiltinTools
+extends Tool
 class_name Ls
 
 # Called when the node enters the scene tree for the first time.
 func run(params : Array):
-	return await list_dir_contents()
+	var result =  await list_dir_contents()
+	echo(str(result))
 
 func list_dir_contents(path: String = Global.current_direrctory):
 	var result: Array = []
@@ -17,4 +18,4 @@ func list_dir_contents(path: String = Global.current_direrctory):
 				result.append(file_name)
 			file_name = dir.get_next()
 		dir.list_dir_end()
-	return await set_output_data(result) 
+	return await result

@@ -1,5 +1,3 @@
-res://Scripts/BuiltinTools/execb.gd
 res://Scenes/otmux.tscn
-res://Scripts/Components/command_handler.gd
-res://Scripts/Components/otmux.gd
-res://Scripts/Components/output_text.gd
+res://Scripts/BuiltinTools/cp.gd
+res://Scripts/BuiltinTools/mv.gd

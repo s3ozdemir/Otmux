@@ -1,9 +1,8 @@
-extends BuiltinTools
+extends Tool
 class_name Echo
 
 func run(params : Array):
 	var result : String = ""
 	for param in params:
 		result += " %s" %param
-	print_debug(result)
-	return set_output_data(result)
+	echo(result)

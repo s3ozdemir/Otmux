@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ibsukwhoghlw" path="res://Scripts/Components/output_text.gd" id="1_o15gl"]
 
-[node name="OutputText" type="TextEdit"]
+[node name="OutputText" type="RichTextLabel"]
 offset_right = 8.0
 offset_bottom = 35.0
+focus_mode = 2
 text = "Output"
-editable = false
+selection_enabled = true
 script = ExtResource("1_o15gl")

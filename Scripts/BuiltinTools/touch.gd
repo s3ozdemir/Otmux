@@ -1,11 +1,11 @@
-extends BuiltinTools
+extends Tool
 class_name Touch
 
 
 func run(params : Array):
 	if params.is_empty():
-		return set_output_data(Messages.parameter_message)
-		
+		echo(Messages.parameter_message)
+	
 	var content : String
 	var _name = params[0]
 	
@@ -15,4 +15,5 @@ func run(params : Array):
 	var file_access = FileAccess.open(Global.current_direrctory.path_join(_name),FileAccess.WRITE)
 	if content:
 		file_access.store_string(content)
+	
 	file_access.close()

@@ -1,6 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d0ah24qlt8enw"]
-
-[ext_resource type="Script" uid="uid://cggtlfgjydvep" path="res://Resources/OutputData.gd" id="1_cldh1"]
-
-[resource]
-script = ExtResource("1_cldh1")

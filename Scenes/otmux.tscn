@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvk1w6urb881x"]
+[gd_scene load_steps=13 format=3 uid="uid://dvk1w6urb881x"]
 
 [ext_resource type="Script" uid="uid://dp1ybd338flbj" path="res://Scripts/Components/otmux.gd" id="1_74b5g"]
 [ext_resource type="Script" uid="uid://l7d1xbagx5xo" path="res://Scripts/Components/http_request.gd" id="2_pqeop"]
@@ -6,12 +6,8 @@
 [ext_resource type="Script" uid="uid://dt5p2r7wtdku8" path="res://Scripts/Components/output_container.gd" id="3_khc6s"]
 [ext_resource type="PackedScene" uid="uid://ggmakp4pooau" path="res://Scenes/output_text.tscn" id="5_4ewo4"]
 [ext_resource type="PackedScene" uid="uid://bcfbstr1xi6j8" path="res://Scenes/popup_copy.tscn" id="5_nmwh8"]
-[ext_resource type="PackedScene" uid="uid://bu0ijqqm71a7w" path="res://Scenes/tool_node.tscn" id="7_1fwaf"]
-[ext_resource type="Script" uid="uid://ew3iwcvma5bi" path="res://Scripts/Components/tool_container.gd" id="7_w2q5t"]
 [ext_resource type="Script" uid="uid://c6ug6id68w0ub" path="res://Scripts/Components/command_handler.gd" id="7_ytals"]
 [ext_resource type="Script" uid="uid://bjg78s510ia6n" path="res://Scripts/Components/bg_color_button.gd" id="9_4bgq1"]
-[ext_resource type="Script" uid="uid://c0s7dr6yxspu5" path="res://Scripts/Components/restart_button.gd" id="10_tgriu"]
-[ext_resource type="Script" uid="uid://qykekgnur8ra" path="res://Scripts/Components/setup_button.gd" id="11_khc6s"]
 [ext_resource type="Script" uid="uid://bylajgsf4ox6m" path="res://Scripts/Components/command_suggest.gd" id="13_p6to2"]
 
 [sub_resource type="Theme" id="Theme_w2q5t"]
@@ -40,8 +36,8 @@ font_size = NodePath("TabContainer/Settings/VBoxContainer/FontSizeSettings/FontS
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." node_paths=PackedStringArray("input_text", "output_text")]
 script = ExtResource("2_pqeop")
-input_text = NodePath("../TabContainer/Terminal/InputText")
-output_text = NodePath("../TabContainer/Terminal/OutputContainer/OutputText")
+input_text = NodePath("../TabContainer/Terminal/OutputContainer/VBoxContainer/InputText")
+output_text = NodePath("../TabContainer/Terminal/OutputContainer/VBoxContainer/OutputText")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -59,81 +55,42 @@ layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="OutputContainer" type="ScrollContainer" parent="TabContainer/Terminal"]
-layout_mode = 0
-offset_right = 648.0
-offset_bottom = 1048.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("3_khc6s")
 
-[node name="OutputText" parent="TabContainer/Terminal/OutputContainer" instance=ExtResource("5_4ewo4")]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Terminal/OutputContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OutputText" parent="TabContainer/Terminal/OutputContainer/VBoxContainer" instance=ExtResource("5_4ewo4")]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 15.16
+bbcode_enabled = true
 text = ""
-wrap_mode = 1
 autowrap_mode = 1
-scroll_smooth = true
-scroll_fit_content_height = true
 
-[node name="InputText" parent="TabContainer/Terminal" instance=ExtResource("2_qpmai")]
-layout_mode = 0
-offset_top = 1048.0
-offset_right = 648.0
-offset_bottom = 1110.0
-size_flags_vertical = 8
-
-[node name="Insallation" type="TabBar" parent="TabContainer"]
-visible = false
+[node name="InputText" parent="TabContainer/Terminal/OutputContainer/VBoxContainer" node_paths=PackedStringArray("output_text", "keyboard_shape") instance=ExtResource("2_qpmai")]
 layout_mode = 2
-metadata/_tab_index = 1
+size_flags_vertical = 10
+output_text = NodePath("../OutputText")
+keyboard_shape = NodePath("../KeyboardShape")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Insallation"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PopupCopy" parent="TabContainer/Insallation/VBoxContainer" instance=ExtResource("5_nmwh8")]
-position = Vector2i(175, 1007)
-visible = false
-
-[node name="CustomTools" type="TabBar" parent="TabContainer"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/CustomTools"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Header" type="HBoxContainer" parent="TabContainer/CustomTools/VBoxContainer"]
-layout_mode = 2
-
-[node name="AddToolButton" type="Button" parent="TabContainer/CustomTools/VBoxContainer/Header"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-text = "+ Add Tool"
-
-[node name="ToolContainer" type="VBoxContainer" parent="TabContainer/CustomTools/VBoxContainer" node_paths=PackedStringArray("add_tool_button")]
-layout_mode = 2
-size_flags_vertical = 3
-script = ExtResource("7_w2q5t")
-add_tool_button = NodePath("../Header/AddToolButton")
-
-[node name="ToolNode" parent="TabContainer/CustomTools/VBoxContainer/ToolContainer" instance=ExtResource("7_1fwaf")]
+[node name="KeyboardShape" type="Control" parent="TabContainer/Terminal/OutputContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Settings" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 3
+metadata/_tab_index = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings"]
 layout_mode = 1
@@ -176,15 +133,20 @@ script = ExtResource("9_4bgq1")
 [node name="RestartButton" type="Button" parent="TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 text = "restart"
-script = ExtResource("10_tgriu")
 
 [node name="SetupButton" type="Button" parent="TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
 text = "set up system"
-script = ExtResource("11_khc6s")
 
 [node name="CommandHandler" type="Node" parent="."]
 script = ExtResource("7_ytals")
 
 [node name="CommandSuggester" type="Node" parent="."]
 script = ExtResource("13_p6to2")
+
+[node name="PopupCopy" parent="." instance=ExtResource("5_nmwh8")]
+position = Vector2i(175, 1007)
+visible = false
+
+[connection signal="pressed" from="TabContainer/Settings/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="TabContainer/Settings/VBoxContainer/SetupButton" to="." method="_on_setup_button_pressed"]

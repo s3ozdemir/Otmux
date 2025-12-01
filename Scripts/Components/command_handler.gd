@@ -5,23 +5,23 @@ class_name CommandHandler
 
 var default_path = OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
 var builtin_tools_path := "res://Scripts/BuiltinTools/"
+var custom_scripts = Global.custom_scripts
+var res_path := "res://"
 
 func _ready() -> void:
 	set_defaults()
 	Global.command_entered.connect(_on_command_entered)
-	get_tools()
 
 func _on_command_entered(command : String):
 	var output = await run_shell_command(command)
-	Global.output_ready.emit(output)
+	#if output == null : return
+	#Global.output_ready.emit(output)
 
 #Sub functions
 func run_shell_command(input : String):
-	var output : OutputData
+	var output : String
 	input = input.strip_edges()
-	if input == null: 
-		output.data = "empty command"
-		output.receiver = self
+	if input == null:
 		return output
 	
 	var space_index = input.find(" ")  # index of first space
@@ -32,24 +32,17 @@ func run_shell_command(input : String):
 	if space_index == -1 :
 		command = input
 		params = []
-		
+	
 	var builtin_tools = get_tools()
+	var path := find_script(command)
 	
-	for tool in builtin_tools.keys():
-		if tool == command:
-			var path : String = builtin_tools[tool]
-			output = await run_script(path, params)
-			break
+	if path == "":
+		Global.output_ready.emit("no command")
+		return
 		
-	if output == null:
-		output = OutputData.new()
-		output.data = "  there is not \" %s \" " % command
-		output.receiver = ""
-	
-	elif output != null:
-		output.receiver = command
-	
-	return output
+	if path.begins_with(res_path):
+		await run_script(path,params)
+		
 
 func set_defaults():
 	Global.current_direrctory = default_path
@@ -63,16 +56,33 @@ func get_tools() -> Dictionary:
 	for file in raw_files:
 		if file.get_extension() == "gd" or file.get_extension() == "gdc":
 			builtin_tools[file.get_basename()] = builtin_tools_path.path_join(file)
+	
 #	getting gd or gdc files in BuiltinTool folder
 #	Beacuse builtin tool is in apk.
 #	(after compiled to apk, gd files convert from .gd to .gdc files)
 	return builtin_tools
 
 func run_script(path:String,params : Array):
-	var output_data : OutputData
+	var output_data : String
 	var script = load(path) # load script
-	output_data = await script.new().run(params) # run the script 
+	output_data = str( await script.new().run(params) ) # run the script 
 	
 	return output_data
 	# (run function is not optional, it is similar to main function in C )
 	# eacht tool script needs a run function (gd script tools)
+
+func find_script(command :String) -> String:
+	var builtin_tools = get_tools()
+	var path :String = ""
+	for tool in builtin_tools.keys():
+		if tool == command:
+			path = builtin_tools[tool]
+			return path
+	
+	if path == "":
+		var custom_scripts = Variables.custom_scripts
+		for script in custom_scripts.keys():
+			if script == command:
+				path = script
+				return path
+	return ""

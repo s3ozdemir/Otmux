@@ -1,7 +1,7 @@
 extends FoldableContainer
 class_name ToolNode
 
-const TOOL_NODE = preload("uid://bu0ijqqm71a7w")
+
 @onready var name_node: LineEdit = $VBoxContainer/Name
 @onready var path_node: LineEdit = $VBoxContainer/Path
 

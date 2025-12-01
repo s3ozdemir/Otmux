@@ -1,21 +1,12 @@
-extends BuiltinTools
+extends Tool
 class_name Img
 
 func run(params: Array):
-	return set_output_data("tool is not ready")
 	if params.is_empty():
-		return set_output_data(Messages.parameter_message)
-		
-	var file_reference = params[0]
-	var image_path: String = HelperFunctions.convert_to_path(file_reference)
+		echo("no paramater")
 	
-	# Image oluştur ve dosyayı yükle
-	var image = Image.new()
-	var err = image.load(image_path)
-	if err != OK:
-		return set_output_data(error_string(err))
+	var path : String = params[0]
+	var result : String = "[img]%s[/img]" %path
 	
-	# ImageTexture oluştur
-	var texture = ImageTexture.new()
-	texture.create_from_image(image)
-	return set_output_data(texture)
+	echo(result)
+	
