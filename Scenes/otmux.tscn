@@ -48,9 +48,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 24
-current_tab = 0
+current_tab = 1
 
 [node name="Terminal" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -78,19 +79,40 @@ bbcode_enabled = true
 text = ""
 autowrap_mode = 1
 
-[node name="InputText" parent="TabContainer/Terminal/OutputContainer/VBoxContainer" node_paths=PackedStringArray("output_text", "keyboard_shape") instance=ExtResource("2_qpmai")]
+[node name="InputText" parent="TabContainer/Terminal/OutputContainer/VBoxContainer" node_paths=PackedStringArray("output_text", "output_container") instance=ExtResource("2_qpmai")]
 layout_mode = 2
 size_flags_vertical = 10
 output_text = NodePath("../OutputText")
-keyboard_shape = NodePath("../KeyboardShape")
+output_container = NodePath("../..")
 
-[node name="KeyboardShape" type="Control" parent="TabContainer/Terminal/OutputContainer/VBoxContainer"]
+[node name="Editor" type="TabBar" parent="TabContainer"]
 layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Editor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Editor/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TabContainer/Editor/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "save"
+
+[node name="CodeEdit" type="CodeEdit" parent="TabContainer/Editor/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Settings" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 1
+metadata/_tab_index = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings"]
 layout_mode = 1

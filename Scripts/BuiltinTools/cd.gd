@@ -3,8 +3,9 @@ class_name Cd
 
 func run(params):
 #	[".."]
-	if !params:
+	if params.is_empty():
 		echo("select directory")
+		return
 	
 	var param = params[0]
 	change_directory(param)

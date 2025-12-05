@@ -1,3 +1,5 @@
 res://Scenes/otmux.tscn
-res://Scripts/BuiltinTools/cp.gd
-res://Scripts/BuiltinTools/mv.gd
+res://Scripts/Components/input_text.gd
+res://Scripts/BuiltinTools/wait.gd
+res://Scripts/BuiltinTools/cd.gd
+res://Scripts/BuiltinTools/edit.gd

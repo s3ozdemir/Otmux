@@ -11,10 +11,10 @@ func run(params : Array):
 	
 	var url : String = params[0]
 	var file_name := url.get_file()
-	var file_path = create_file(file_name)
+	#var file_path = create_file(file_name)
 	var http :HTTPRequest = Global.get_http_request()
 	
-	http.download_file = file_path
+	http.download_file = Global.current_direrctory
 	http.request(url)
 	echo(Messages.response_waiting)
 

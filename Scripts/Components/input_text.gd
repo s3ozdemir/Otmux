@@ -1,8 +1,8 @@
-extends TextEdit
+extends CodeEdit
 class_name InputText
 
 @export var output_text: OutputText 
-@export var keyboard_shape: Control 
+@export var output_container: ScrollContainer
 
 func _ready() -> void:
 	focus_entered.connect(_on_focus_entered)
@@ -29,15 +29,11 @@ func clear_outputs(input : String):
 	if input == "clear":
 		output_text.text = ""
 
-func change_input_position():
-	var keyboard_height := DisplayServer.virtual_keyboard_get_height()
-	keyboard_shape.custom_minimum_size.y = keyboard_height
-
 func _on_focus_entered() -> void:
-	change_input_position()
+	output_container.ensure_control_visible(self)
 
 func _on_focus_exited() -> void:
-	change_input_position() 
+	output_container.ensure_control_visible(self)
 
 func on_waited(delay : float):
 	lock_input_text(delay)
